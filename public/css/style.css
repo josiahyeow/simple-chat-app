@@ -25,6 +25,10 @@ body {
 #message-container {
   flex-grow: 1;
   overflow-y: auto;
+  background-color: #feeee3;
+  border: 2px #000 solid;
+  border-radius: 0.7rem 0.7rem 0rem 0rem;
+  padding: 1rem;
 }
 
 #message-container div {
@@ -35,10 +39,21 @@ body {
   margin-bottom: 1rem;
 }
 
+#message-container .name {
+  font-weight: bold;
+  margin-right: 0.3rem;
+  font-style: italic;
+}
+
 #send-container {
   background-color: #b3ffe4;
   display: flex;
-  min-height: 2rem;
+  background-color: #FFF;
+  padding: 0.7rem;
+  border: 2px #000 solid;
+  border-top: 1px;
+  border-radius: 0rem 0rem 0.7rem 0.7rem;
+  margin-bottom: 1rem;
 }
 
 #send-container * {
@@ -56,7 +71,7 @@ body {
 
 #send-button {
   border: 2px #000 solid;
-  background-color: #fff;
+  background-color: #feeee3;
   border-radius: 0.7rem;
   font-weight: bold;
   padding: 0rem 1.5rem; 

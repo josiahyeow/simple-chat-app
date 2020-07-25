@@ -1,33 +1,30 @@
-html, body {
+html {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   background-color: #feeee3;
   font-family: sans-serif;
-  height: 100%;
-  width: 100%;
-  margin: 0px;
-  overflow: hidden;
   font-size: 1rem;
+  overflow: hidden;
 }
 
 
 #container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1rem;
-  max-height: 100%;
-}
-
-#chat-area {
-  max-height: 100%;
+  flex-flow: column;
+  justify-content: space-between;
   width: 100%;
-  max-width: 600px;
+  height: calc(100% - 50px);
 }
 
 #message-container {
-  flex-grow: 7;
-  height: 700px;
-  max-height: 700px;
-  overflow: auto;
+  flex-grow: 1;
+  overflow-y: auto;
 }
 
 #message-container div {
@@ -39,13 +36,16 @@ html, body {
 }
 
 #send-container {
-  flex-grow: 3;
-  margin-top: 1rem;
+  background-color: #feeee3;
   display: flex;
 }
 
+#send-container * {
+  padding: 10px;
+}
+
 #message-input {
-  flex-grow: 8;
+  flex: 1;
   background-color: #FFF;
   padding: 0.7rem;
   border: 2px #000 solid;
@@ -54,7 +54,6 @@ html, body {
 }
 
 #send-button {
-  flex-grow: 2;
   border: 2px #000 solid;
   background-color: #00FFD1;
   border-radius: 0.7rem;

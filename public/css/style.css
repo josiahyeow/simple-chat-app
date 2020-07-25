@@ -1,11 +1,11 @@
 body {
-    margin: 10rem;
     display: flex;
     justify-content: space-between;
     font-family: sans-serif;
     flex-direction: column;
-    height: 80vh;
+    height: 90vh;
     background-color: #feeee3;
+    padding: 1rem;
   }
 
   #message-container div {
@@ -36,4 +36,10 @@ body {
     background-color: #00FFD1;
     border-radius: 0.7rem;
     font-weight: bold;
+  }
+
+  @media only screen and (min-width: 600px) {
+    body {
+      padding: 10rem;
+    }
   }

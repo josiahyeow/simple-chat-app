@@ -5,6 +5,7 @@ html, body {
   width: 100%;
   margin: 0px;
   overflow: hidden;
+  font-size: 1rem;
 }
 
 
@@ -13,14 +14,18 @@ html, body {
   justify-content: center;
   align-items: center;
   margin: 1rem;
+  max-height: 100%;
 }
 
 #chat-area {
+  max-height: 100%;
   width: 100%;
   max-width: 600px;
+  margin-bottom: 10rem;
 }
 
 #message-container {
+  flex-grow: 7;
   height: 700px;
   overflow: auto;
 }
@@ -34,8 +39,8 @@ html, body {
 }
 
 #send-container {
+  flex-grow: 3;
   margin-top: 1rem;
-  padding-bottom: 30px;
   display: flex;
 }
 

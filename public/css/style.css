@@ -41,7 +41,7 @@ body {
 }
 
 #send-container * {
-  padding: 10px;
+  padding: 1rem;
 }
 
 #message-input {
@@ -58,10 +58,11 @@ body {
   background-color: #00FFD1;
   border-radius: 0.7rem;
   font-weight: bold;
+  padding: 0rem 1.5rem; 
 }
 
 @media only screen and (min-width: 600px) {
   #container {
-    padding: 2rem 10rem;
+    padding: 2rem 20rem;
   }
 }

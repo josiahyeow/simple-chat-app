@@ -36,6 +36,11 @@ function appendMessage(author, message) {
     messageSpan.innerText = message
     messageDiv.appendChild(nameSpan)
     messageDiv.appendChild(messageSpan)
+
+    if(author == 'You') {
+        messageDiv.className = 'you'
+    }
+
     messageContainer.append(messageDiv)
     messageContainer.scrollTop = messageContainer.scrollHeight
 }

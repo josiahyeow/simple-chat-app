@@ -37,6 +37,10 @@ body {
   border: 2px #000 solid;
   border-radius: 0.7rem;
   margin-bottom: 1rem;
+  width: fit-content;
+}
+#message-container .you {
+  float: right;
 }
 
 #message-container .name {

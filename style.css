@@ -1,0 +1,39 @@
+body {
+    margin: 10rem;
+    display: flex;
+    justify-content: space-between;
+    font-family: sans-serif;
+    flex-direction: column;
+    height: 80vh;
+    background-color: #feeee3;
+  }
+
+  #message-container div {
+    background-color: #FFF;
+    padding: 0.7rem;
+    border: 2px #000 solid;
+    border-radius: 0.7rem;
+    margin-bottom: 1rem;
+  }
+
+  #send-container {
+    padding-bottom: 30px;
+    display: flex;
+  }
+
+  #message-input {
+    flex-grow: 8;
+    background-color: #FFF;
+    padding: 0.7rem;
+    border: 2px #000 solid;
+    border-radius: 0.7rem;
+    margin-right: 0.5rem;
+  }
+
+  #send-button {
+    flex-grow: 2;
+    border: 2px #000 solid;
+    background-color: #00FFD1;
+    border-radius: 0.7rem;
+    font-weight: bold;
+  }

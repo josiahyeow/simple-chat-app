@@ -28,19 +28,27 @@ messageForm.addEventListener('submit', e => {
 })
 
 function appendMessage(author, message) {
-    const messageDiv = document.createElement('div')
     const nameSpan = document.createElement('span')
     nameSpan.className = 'name'
-    const messageSpan = document.createElement('span')
     nameSpan.innerText = `${author}: `
+
+    const messageSpan = document.createElement('span')
     messageSpan.innerText = message
+
+    const messageDiv = document.createElement('div')
+    messageDiv.className = 'bubble'
     messageDiv.appendChild(nameSpan)
     messageDiv.appendChild(messageSpan)
 
+    const rowDiv = document.createElement('div')
     if(author == 'You') {
-        messageDiv.className = 'you'
+        rowDiv.className = 'row you'
     }
+    else {
+        rowDiv.className = 'row'
+    }
+    rowDiv.appendChild(messageDiv)
 
-    messageContainer.append(messageDiv)
+    messageContainer.append(rowDiv)
     messageContainer.scrollTop = messageContainer.scrollHeight
 }

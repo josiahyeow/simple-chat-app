@@ -31,7 +31,12 @@ body {
   padding: 1rem;
 }
 
-#message-container div {
+#message-container .row {
+  width: 100%;
+  display: flex;
+}
+
+#message-container .bubble {
   background-color: #FFF;
   padding: 0.7rem;
   border: 2px #000 solid;
@@ -40,7 +45,8 @@ body {
   width: fit-content;
 }
 #message-container .you {
-  float: right;
+  justify-content: flex-end;
+  align-content: flex-end;
 }
 
 #message-container .name {

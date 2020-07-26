@@ -9,7 +9,6 @@ const messageForm = document.getElementById('send-container')
 const messageInput = document.getElementById('message-input')
 
 if (messageForm != null ) {
-    // const name = prompt('What is your name?')
     socket.emit('new-user', roomName, name)
 
     messageForm.addEventListener('submit', e => {
@@ -64,7 +63,6 @@ function appendMessage(author, message) {
 function updateUsers(users) {
     usersContainer.innerHTML = ''
     Object.values(users).forEach(user => {
-        console.log(user)
         appendUser(user)
     })
 }

@@ -2,7 +2,6 @@ const express = require('express')
 const socketIO = require('socket.io')
 
 const PORT = process.env.PORT || 3000
-const INDEX = '/index.html'
 
 const app = express()
 const server = app
@@ -17,7 +16,7 @@ const io = socketIO(server)
 const rooms = { }
 
 app.get('/', (req, res) => {
-    res.render('index', { rooms: rooms })
+    res.render('index', { room: req.query.room })
 })
 
 app.post('/room', (req, res) => {
@@ -35,6 +34,9 @@ app.post('/room', (req, res) => {
 app.get('/:room', (req, res) => {
     if(rooms[req.params.room] == null) {
         return res.redirect('/')
+    }
+    if(req.query.user == null) {
+        return res.redirect(`/?room=${req.params.room}`)
     }
     res.render('room', { roomName: req.params.room, name: req.query.user })
 })

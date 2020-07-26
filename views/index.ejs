@@ -21,8 +21,10 @@
     <div id="app-container">
         <form id="room-container" action="/room" method="POST" class="box">
             <input name="name" type="text" placeholder="Name" class="box" required>
-            <input name="room" type="text" placeholder="Room Name" class="box" required>
-            <button type="submit" name="action" value="create" class="box">Create Room</button>
+            <input name="room" type="text" placeholder="Room Name" class="box" value="<%= room %>" required>
+            <% if (!room) { %>
+                <button type="submit" name="action" value="create" class="box">Create Room</button>
+            <% } %>
             <button type="submit" name="action" value="join" class="box"> Join Room</button>
         </form>
     </div>

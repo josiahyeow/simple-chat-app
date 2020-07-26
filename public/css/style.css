@@ -121,7 +121,14 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
+  #app-container {
+    grid-template-columns: 1fr;
+  }
+
   #users-container {
-    display: none
+    display: none;
+  }
+  #chat-container {
+    grid-column: 1;
   }
 }

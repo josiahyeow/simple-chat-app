@@ -151,11 +151,13 @@ button {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
   }
-
   #users-container {
     display: none;
   }
   #chat-container {
     grid-column: 1;
+  }
+  #message-container {
+    max-height: calc(100vh - 12.75rem);
   }
 }

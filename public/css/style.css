@@ -10,25 +10,54 @@ body {
   background-color: #b3ffe4;
   font-family: sans-serif;
   font-size: 1rem;
-  overflow: hidden;
+  margin: 0;
 }
 
+.box {
+  background-color: #feeee3;
+  border: 2px #000 solid;
+  border-radius: 0.7rem;
+  margin: 1rem;
+  padding: 1rem;
+}
 
-#container {
+#app-container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+#users-container {
+  grid-column: 1;
+  min-width: 12rem;
+  height: fit-content;
+}
+
+#user {
+  background-color: #fff;
+  margin: 0;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  font-style: italic;
+}
+
+#chat-container {
+  grid-column: 2;
   display: flex;
   flex-flow: column;
   justify-content: space-between;
   width: 100%;
-  height: calc(100% - 50px);
+  height: 100%;
+  margin-top: 0rem;
 }
 
 #message-container {
   flex-grow: 1;
   overflow-y: auto;
-  background-color: #feeee3;
-  border: 2px #000 solid;
   border-radius: 0.7rem 0.7rem 0rem 0rem;
-  padding: 1rem;
+  margin-bottom: 0rem;
+  height: 100%;
 }
 
 #message-container .row {
@@ -44,6 +73,7 @@ body {
   margin-bottom: 1rem;
   width: fit-content;
 }
+
 #message-container .you {
   justify-content: flex-end;
   align-content: flex-end;
@@ -64,6 +94,7 @@ body {
   border-top: 1px;
   border-radius: 0rem 0rem 0.7rem 0.7rem;
   margin-bottom: 1rem;
+  margin-top: 0rem;
 }
 
 #send-container * {
@@ -87,8 +118,8 @@ body {
   padding: 0rem 1.5rem; 
 }
 
-@media only screen and (min-width: 600px) {
-  #container {
-    padding: 2rem 20rem;
+@media only screen and (max-width: 600px) {
+  #users-container {
+    display: none
   }
 }

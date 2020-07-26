@@ -1,22 +1,26 @@
 const socket = io()
+
+const usersContainer = document.getElementById('users-container')
+
 const messageContainer = document.getElementById('message-container')
 const messageForm = document.getElementById('send-container')
 const messageInput = document.getElementById('message-input')
 
 const name = prompt('What is your name?')
-appendMessage('BOT', 'You joined')
 socket.emit('new-user', name)
 
-socket.on('user-connected', name => {
-    appendMessage('BOT', `${name} connected`)
+socket.on('user-connected', (newUser, allUsers) => {
+    appendMessage('BOT', `${newUser} connected`)
+    updateUsers(allUsers)
 })
 
 socket.on('chat-message', data => {
     appendMessage(data.name, data.message)
 })
 
-socket.on('user-disconnected', name => {
-    appendMessage('BOT', `${name} disconnected`)
+socket.on('user-disconnected', (oldUser, allUsers) => {
+    appendMessage('BOT', `${oldUser} disconnected`)
+    updateUsers(allUsers)
 })
 
 messageForm.addEventListener('submit', e => {
@@ -51,4 +55,20 @@ function appendMessage(author, message) {
 
     messageContainer.append(rowDiv)
     messageContainer.scrollTop = messageContainer.scrollHeight
+}
+
+function updateUsers(users) {
+    usersContainer.innerHTML = ''
+    Object.values(users).forEach(user => {
+        console.log(user)
+        appendUser(user)
+    })
+}
+
+function appendUser(user) {
+    const userDiv = document.createElement('div')
+    userDiv.id = 'user'
+    userDiv.className = 'box'
+    userDiv.innerText = user
+    usersContainer.append(userDiv)
 }

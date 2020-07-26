@@ -1,13 +1,35 @@
 const socket = io()
 
+const roomContainer = document.getElementById('room-container')
+
 const usersContainer = document.getElementById('users-container')
 
 const messageContainer = document.getElementById('message-container')
 const messageForm = document.getElementById('send-container')
 const messageInput = document.getElementById('message-input')
 
-const name = prompt('What is your name?')
-socket.emit('new-user', name)
+if (messageForm != null ) {
+    const name = prompt('What is your name?')
+    socket.emit('new-user', roomName, name)
+
+    messageForm.addEventListener('submit', e => {
+        e.preventDefault()
+        const message = messageInput.value
+        socket.emit('send-chat-message', roomName, message)
+        messageInput.value = ''
+        appendMessage('You', message)
+    })
+}
+
+socket.on('room-created', room => {
+    const roomDiv = document.createElement('div')
+    roomDiv.innerText = room
+    const roomLink = document.createElement('a')
+    roomLink.href = `/${room}`
+    roomLink.innerText = 'join'
+    roomContainer.append(roomDiv)
+    roomContainer.append(roomLink)
+})
 
 socket.on('user-connected', (newUser, allUsers) => {
     appendMessage('BOT', `${newUser} connected`)
@@ -21,14 +43,6 @@ socket.on('chat-message', data => {
 socket.on('user-disconnected', (oldUser, allUsers) => {
     appendMessage('BOT', `${oldUser} disconnected`)
     updateUsers(allUsers)
-})
-
-messageForm.addEventListener('submit', e => {
-    e.preventDefault()
-    const message = messageInput.value
-    socket.emit('send-chat-message', message)
-    messageInput.value = ''
-    appendMessage('You', message)
 })
 
 function appendMessage(author, message) {

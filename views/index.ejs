@@ -1,0 +1,36 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="chat" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png">
+    <link rel="manifest" href="/icon/site.webmanifest">
+    <link rel="apple-touch-startup-image" href="/icon/launch.png" />
+    <title>chat</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script defer src="/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body>
+    <div id="app-container">
+        <div id="rooms-container" class="box">
+            <% Object.keys(rooms).forEach(room => { %>
+                <div><%= room %></div>
+                <a href="/<%= room %>">Join</a>
+           <% }) %>
+           
+        </div>
+        <form action="/room" method="POST">
+            <input name="room" type="text" required>
+            <button type="submit">New Room</button>
+            </form>
+    </div>
+</body>
+
+</html>

@@ -21,19 +21,22 @@ app.get('/', (req, res) => {
 })
 
 app.post('/room', (req, res) => {
-    if(rooms[req.body.room] != null){
-        return res.redirect('/')
+    if(req.body.action == "create") {
+        if(rooms[req.body.room] != null){
+            return res.redirect('/')
+        }
+        else {
+            rooms[req.body.room] = { users: {} }
+        }
     }
-    rooms[req.body.room] = { users: {} }
-    res.redirect(req.body.room)
-    io.emit('room-created', req.body.room)
+    res.redirect(`${req.body.room}?user=${req.body.name}`)
 })
 
 app.get('/:room', (req, res) => {
     if(rooms[req.params.room] == null) {
         return res.redirect('/')
     }
-    res.render('room', { roomName: req.params.room })
+    res.render('room', { roomName: req.params.room, name: req.query.user })
 })
 
 io.on('connection', socket => {

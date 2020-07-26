@@ -19,6 +19,14 @@ body {
   padding: 1rem;
 }
 
+input {
+  background-color: #fff !important;
+}
+
+button {
+  font-weight: bold;
+}
+
 #app-container {
   width: 100%;
   height: calc(100vh - 2rem);
@@ -26,6 +34,27 @@ body {
   grid-template-columns: auto 1fr;
   column-gap: 1rem;
   padding: 1rem;
+}
+
+#room-container {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1rem;
+  background-color: #fff;
+  grid-column: 1;
+  min-width: 12rem;
+  height: fit-content;
+}
+
+#room-details {
+  background-color: #fff;
+  grid-column: 1;
+  margin-bottom: 1rem;
+}
+
+#room-title {
+  font-style: italic;
+  font-weight: bold;
 }
 
 #users-container {

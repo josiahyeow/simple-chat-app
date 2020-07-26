@@ -14,6 +14,7 @@
     <title>chat</title>
     <script>
         const roomName = "<%= roomName %>"
+        const name = "<%= name %>"
     </script>
     <script src="/socket.io/socket.io.js"></script>
     <script defer src="/script.js"></script>
@@ -22,7 +23,10 @@
 
 <body>
     <div id="app-container">
-        <div id="users-container" class="box">
+        <div>
+            <div id="room-details" class="box"><span id="room-title">Room</span>: <%= roomName %></div>
+            <div id="users-container" class="box">
+            </div>
         </div>
         <div id="chat-container">
             <div id="message-container" class="box"></div>

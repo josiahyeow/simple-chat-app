@@ -19,17 +19,12 @@
 
 <body>
     <div id="app-container">
-        <div id="rooms-container" class="box">
-            <% Object.keys(rooms).forEach(room => { %>
-                <div><%= room %></div>
-                <a href="/<%= room %>">Join</a>
-           <% }) %>
-           
-        </div>
-        <form action="/room" method="POST">
-            <input name="room" type="text" required>
-            <button type="submit">New Room</button>
-            </form>
+        <form id="room-container" action="/room" method="POST" class="box">
+            <input name="name" type="text" placeholder="Name" class="box" required>
+            <input name="room" type="text" placeholder="Room Name" class="box" required>
+            <button type="submit" name="action" value="create" class="box">Create Room</button>
+            <button type="submit" name="action" value="join" class="box"> Join Room</button>
+        </form>
     </div>
 </body>
 

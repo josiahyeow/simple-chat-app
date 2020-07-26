@@ -9,7 +9,7 @@ const messageForm = document.getElementById('send-container')
 const messageInput = document.getElementById('message-input')
 
 if (messageForm != null ) {
-    const name = prompt('What is your name?')
+    // const name = prompt('What is your name?')
     socket.emit('new-user', roomName, name)
 
     messageForm.addEventListener('submit', e => {
@@ -20,16 +20,6 @@ if (messageForm != null ) {
         appendMessage('You', message)
     })
 }
-
-socket.on('room-created', room => {
-    const roomDiv = document.createElement('div')
-    roomDiv.innerText = room
-    const roomLink = document.createElement('a')
-    roomLink.href = `/${room}`
-    roomLink.innerText = 'join'
-    roomContainer.append(roomDiv)
-    roomContainer.append(roomLink)
-})
 
 socket.on('user-connected', (newUser, allUsers) => {
     appendMessage('BOT', `${newUser} connected`)
